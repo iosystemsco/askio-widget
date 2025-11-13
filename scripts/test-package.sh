@@ -5,7 +5,7 @@
 
 set -e
 
-echo "Testing @ask-io/chat-widget package..."
+echo "Testing @iosystemsco/askio-widget package..."
 
 # Get the current directory (should be packages/chat-widget)
 PACKAGE_DIR=$(pwd)
@@ -40,35 +40,35 @@ npm install "$PACKAGE_PATH"
 echo "Verifying installation..."
 
 # Check if main exports exist
-if [ -f "node_modules/@ask-io/chat-widget/dist/index.js" ]; then
+if [ -f "node_modules/@iosystemsco/askio-widget/dist/index.js" ]; then
   echo "✓ ESM bundle exists"
 else
   echo "✗ ESM bundle missing"
   exit 1
 fi
 
-if [ -f "node_modules/@ask-io/chat-widget/dist/index.cjs" ]; then
+if [ -f "node_modules/@iosystemsco/askio-widget/dist/index.cjs" ]; then
   echo "✓ CommonJS bundle exists"
 else
   echo "✗ CommonJS bundle missing"
   exit 1
 fi
 
-if [ -f "node_modules/@ask-io/chat-widget/dist/index.d.ts" ]; then
+if [ -f "node_modules/@iosystemsco/askio-widget/dist/index.d.ts" ]; then
   echo "✓ TypeScript definitions exist"
 else
   echo "✗ TypeScript definitions missing"
   exit 1
 fi
 
-if [ -f "node_modules/@ask-io/chat-widget/dist/index.css" ]; then
+if [ -f "node_modules/@iosystemsco/askio-widget/dist/index.css" ]; then
   echo "✓ Styles exist"
 else
   echo "✗ Styles missing"
   exit 1
 fi
 
-if [ -f "node_modules/@ask-io/chat-widget/dist/embed.js" ]; then
+if [ -f "node_modules/@iosystemsco/askio-widget/dist/embed.js" ]; then
   echo "✓ Embed script exists"
 else
   echo "✗ Embed script missing"
@@ -80,7 +80,7 @@ echo "Checking package.json..."
 node -e "
   const fs = require('fs');
   const path = require('path');
-  const pkgPath = path.join(process.cwd(), 'node_modules/@ask-io/chat-widget/package.json');
+  const pkgPath = path.join(process.cwd(), 'node_modules/@iosystemsco/askio-widget/package.json');
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
   console.log('Package name:', pkg.name);
   console.log('Package version:', pkg.version);
@@ -93,7 +93,7 @@ node -e "
 echo "Testing imports..."
 node -e "
   try {
-    const widget = require('@ask-io/chat-widget');
+    const widget = require('@iosystemsco/askio-widget');
     console.log('✓ CommonJS import works');
     console.log('Exports:', Object.keys(widget));
   } catch (e) {

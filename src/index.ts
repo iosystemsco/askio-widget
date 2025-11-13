@@ -1,24 +1,24 @@
 /**
- * @ask-io/chat-widget
- * 
+ * @iosystemsco/askio-widget
+ *
  * Embeddable AI chat widget for websites with React support.
- * 
+ *
  * ## Installation
- * 
+ *
  * ```bash
- * npm install @ask-io/chat-widget
+ * npm install @iosystemsco/askio-widget
  * # or
- * yarn add @ask-io/chat-widget
+ * yarn add @iosystemsco/askio-widget
  * # or
- * pnpm add @ask-io/chat-widget
+ * pnpm add @iosystemsco/askio-widget
  * ```
- * 
+ *
  * ## Basic Usage
- * 
+ *
  * ```tsx
- * import { ChatWidget } from '@ask-io/chat-widget';
- * import '@ask-io/chat-widget/styles';
- * 
+ * import { ChatWidget } from '@iosystemsco/askio-widget';
+ * import '@iosystemsco/askio-widget/styles';
+ *
  * function App() {
  *   return (
  *     <ChatWidget
@@ -29,12 +29,12 @@
  *   );
  * }
  * ```
- * 
+ *
  * ## Headless Usage
- * 
+ *
  * ```tsx
- * import { ChatWidgetHeadless } from '@ask-io/chat-widget';
- * 
+ * import { ChatWidgetHeadless } from '@iosystemsco/askio-widget';
+ *
  * function CustomChat() {
  *   return (
  *     <ChatWidgetHeadless siteToken="your-site-token">
@@ -52,7 +52,7 @@
  *   );
  * }
  * ```
- * 
+ *
  * @packageDocumentation
  */
 

@@ -1,16 +1,16 @@
 /**
- * @ask-io/chat-widget/headless
- * 
+ * @iosystemsco/askio-widget/headless
+ *
  * Headless entry point for custom chat implementations.
  * This export provides all the functionality without any default styling,
  * allowing you to build completely custom UIs.
- * 
+ *
  * ## Usage
- * 
+ *
  * ```tsx
- * import { ChatWidgetHeadless, useChat } from '@ask-io/chat-widget/headless';
- * import type { ChatMessage, ChatState, ChatActions } from '@ask-io/chat-widget/headless';
- * 
+ * import { ChatWidgetHeadless, useChat } from '@iosystemsco/askio-widget/headless';
+ * import type { ChatMessage, ChatState, ChatActions } from '@iosystemsco/askio-widget/headless';
+ *
  * function CustomChat() {
  *   return (
  *     <ChatWidgetHeadless siteToken="your-site-token">
@@ -38,7 +38,7 @@
  *   );
  * }
  * ```
- * 
+ *
  * @packageDocumentation
  */
 

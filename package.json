@@ -1,5 +1,5 @@
 {
-  "name": "@ask-io/chat-widget",
+  "name": "@iosystemsco/askio-widget",
   "version": "1.0.0",
   "description": "Embeddable AI chat widget for websites",
   "type": "module",

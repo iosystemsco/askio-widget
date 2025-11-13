@@ -1,4 +1,4 @@
-CDN Deployment Checklist for @ask-io/chat-widget
+CDN Deployment Checklist for @iosystemsco/askio-widget
 =================================================
 
 Pre-Deployment Verification:

@@ -1,4 +1,4 @@
-NPM Publishing Checklist for @ask-io/chat-widget
+NPM Publishing Checklist for @iosystemsco/askio-widget
 ================================================
 
 Pre-Publish Verification:

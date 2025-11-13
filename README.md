@@ -1,4 +1,4 @@
-# @ask-io/chat-widget
+# @iosystemsco/askio-widget
 
 A lightweight, embeddable AI chat widget for websites with support for text and voice interactions. Built with React and TypeScript for maximum compatibility and performance.
 
@@ -25,7 +25,7 @@ A lightweight, embeddable AI chat widget for websites with support for text and 
 ### Package Manager
 
 ```bash
-npm install @ask-io/chat-widget
+npm install @iosystemsco/askio-widget
 # or
 yarn add @ask-io/chat-widget
 # or
@@ -57,8 +57,8 @@ For immediate deployment without build setup:
 ### Basic React Integration
 
 ```tsx
-import { ChatWidget } from '@ask-io/chat-widget';
-import '@ask-io/chat-widget/styles';
+import { ChatWidget } from '@iosystemsco/askio-widget';
+import '@iosystemsco/askio-widget/styles';
 
 function App() {
   return <ChatWidget siteToken="your-site-token" theme={{ preset: 'dark' }} language="en" position="bottom-right" enableVoice={true} enableTTS={true} />;
@@ -70,7 +70,7 @@ function App() {
 For custom UI implementations:
 
 ```tsx
-import { ChatWidgetHeadless } from '@ask-io/chat-widget';
+import { ChatWidgetHeadless } from '@iosystemsco/askio-widget';
 
 function CustomChat() {
   return (
@@ -449,7 +449,7 @@ interface ThemeConfig {
 **TypeScript errors:**
 
 - Ensure React types are installed: `@types/react@^19.2.0`
-- Update to latest version: `npm install @ask-io/chat-widget@latest`
+- Update to latest version: `npm install @iosystemsco/askio-widget@latest`
 - Check TypeScript version compatibility (5.9+)
 
 **Bundle size issues:**
