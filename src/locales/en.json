@@ -1,0 +1,34 @@
+{
+  "chat": {
+    "title": "AI Assistant",
+    "placeholder": "Type a message...",
+    "send": "Send",
+    "connecting": "Connecting...",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "reconnect": "Reconnect",
+    "listening": "Listening...",
+    "thinking": "Thinking...",
+    "welcome": "Welcome! How can I help you today?",
+    "askMe": "Ask me anything!",
+    "tryQuestions": "Try asking:",
+    "connectionLost": "Connection lost",
+    "closeChat": "Close chat",
+    "chatWithAI": "Chat with AI",
+    "listeningSpeak": "Listening... Speak now",
+    "suggestions": {
+      "whatIsCreastat": "What is Creastat?",
+      "howMuchCost": "How much does it cost?",
+      "whatFeatures": "What features do you offer?",
+      "howGetStarted": "How do I get started?"
+    },
+    "errors": {
+      "authFailed": "Authentication failed",
+      "connectionLost": "Connection lost",
+      "micPermission": "Microphone permission denied",
+      "audioFailed": "Voice input unavailable",
+      "notConnected": "Not connected to chat service",
+      "sendFailed": "Failed to send message"
+    }
+  }
+}

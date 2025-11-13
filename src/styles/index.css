@@ -1,0 +1,227 @@
+@import 'tailwindcss';
+@import './themes.css';
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive base */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Message content styling */
+.message {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.message p {
+  margin: 0.5rem 0;
+}
+
+.message p:first-child {
+  margin-top: 0;
+}
+
+.message p:last-child {
+  margin-bottom: 0;
+}
+
+.message code {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.875em;
+}
+
+.message pre {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.message pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.message ul,
+.message ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.message li {
+  margin: 0.25rem 0;
+}
+
+.message a {
+  color: var(--chat-primary);
+  text-decoration: underline;
+}
+
+.message a:hover {
+  opacity: 0.8;
+}
+
+/* Scrollbar styling */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Full screen on mobile */
+  .chat-widget-mobile {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Safe area insets for iOS */
+  .chat-widget-mobile-safe {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Adjust message bubbles for mobile */
+  .message-bubble-mobile {
+    max-width: 85% !important;
+  }
+
+  /* Larger touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Hide scrollbar on mobile for cleaner look */
+  .chat-scrollbar-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chat-scrollbar-mobile {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .chat-widget-tablet {
+    max-width: 400px;
+    max-height: 600px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger interactive elements */
+  button, a, input, textarea {
+    min-height: 44px;
+  }
+
+  /* Prevent text selection on double tap */
+  .no-select-mobile {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Smooth scrolling on touch */
+  .touch-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Keyboard handling on mobile */
+.chat-input-mobile-keyboard {
+  /* Ensure input stays visible when keyboard appears */
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for iOS Safari bottom bar */
+  .chat-widget-ios {
+    height: -webkit-fill-available;
+  }
+
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* Android-specific fixes */
+@media screen and (max-width: 768px) {
+  /* Fix for Android keyboard overlay */
+  .chat-widget-android {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .chat-widget-landscape {
+    max-height: 100vh;
+  }
+
+  .chat-messages-landscape {
+    max-height: calc(100vh - 120px);
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .chat-widget {
+    border: 2px solid currentColor;
+  }
+
+  button, input, textarea {
+    border: 2px solid currentColor;
+  }
+}

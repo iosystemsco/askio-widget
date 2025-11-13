@@ -1,0 +1,64 @@
+MIT License
+
+Copyright (c) 2024 ioSystems
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+===============================================================================
+
+ADDITIONAL TERMS FOR PROPRIETARY API INTEGRATION:
+
+This software is designed to work with ioSystems' proprietary AI chat API.
+While this widget code is open source under the MIT License, the following
+additional terms apply when using it with ioSystems' proprietary services:
+
+1. API Access: Access to ioSystems' AI chat API requires a valid site token
+   and may be subject to separate terms of service and usage limits.
+
+2. Data Processing: When using this widget with ioSystems' API, user messages
+   and data are processed according to ioSystems' privacy policy and terms
+   of service for the proprietary API service.
+
+3. Commercial Use: While the widget code is open source, commercial use of
+   the integrated service may require appropriate licensing agreements with
+   ioSystems.
+
+4. Support: Support for the widget itself is provided under open source
+   terms, but API-related issues are subject to ioSystems' proprietary
+   service support agreements.
+
+For questions about API licensing and commercial use, please contact:
+legal@iosystems.com
+
+For open source issues and contributions, please visit:
+https://github.com/iosystems/chat-widget
+
+===============================================================================
+
+Third-party licenses included in this package:
+
+- React: MIT License (https://github.com/facebook/react)
+- TypeScript: Apache License 2.0 (https://github.com/microsoft/TypeScript)
+- Vite: MIT License (https://github.com/vitejs/vite)
+- Tailwind CSS: MIT License (https://github.com/tailwindlabs/tailwindcss)
+- Zustand: MIT License (https://github.com/pmndrs/zustand)
+- Marked: MIT License (https://github.com/markedjs/marked)
+- DOMPurify: Mozilla Public License 2.0 (https://github.com/cure53/DOMPurify)
+
+See individual package licenses for full terms and conditions.

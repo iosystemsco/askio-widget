@@ -1,0 +1,48 @@
+# Source files
+src/
+*.ts
+!*.d.ts
+
+# Config files
+tsconfig.json
+vite.config.ts
+vite.config.embed.ts
+tailwind.config.js
+postcss.config.js
+
+# Development files
+test-embed.html
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__/
+__mocks__/
+
+# Build artifacts
+node_modules/
+.turbo/
+*.log
+*.tsbuildinfo
+
+# Documentation (as per requirements)
+README.md
+OPTIMIZATIONS.md
+*.md
+
+# Examples (as per requirements)
+examples/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.env
+.env.*

@@ -1,0 +1,66 @@
+NPM Publishing Checklist for @ask-io/chat-widget
+================================================
+
+Pre-Publish Verification:
+-------------------------
+[ ] 1. Run type check: bun run type-check
+[ ] 2. Build package: bun run build
+[ ] 3. Test package locally: bun run test:package
+[ ] 4. Check package contents: bun run pack:check
+[ ] 5. Verify bundle sizes are acceptable (< 100KB gzipped for main bundle)
+[ ] 6. Ensure all peer dependencies are correct
+[ ] 7. Update version in package.json if needed
+[ ] 8. Commit all changes to git
+
+Publishing Steps:
+-----------------
+
+Option A: Manual Publishing
+[ ] 1. Ensure you're logged in to npm: npm whoami
+[ ] 2. If not logged in: npm login
+[ ] 3. Publish: npm publish --access public
+[ ] 4. Verify on npm: https://www.npmjs.com/package/@ask-io/chat-widget
+[ ] 5. Tag the release in git: git tag chat-widget-v1.0.0
+[ ] 6. Push tags: git push --tags
+
+Option B: GitHub Actions (Recommended)
+[ ] 1. Ensure NPM_TOKEN is set in GitHub Secrets
+[ ] 2. Go to Actions tab in GitHub
+[ ] 3. Select "Chat Widget - Publish to NPM" workflow
+[ ] 4. Click "Run workflow"
+[ ] 5. Select version bump type (patch/minor/major)
+[ ] 6. Select npm tag (latest/beta/alpha)
+[ ] 7. Click "Run workflow"
+[ ] 8. Monitor workflow execution
+[ ] 9. Verify on npm after completion
+
+Post-Publish Verification:
+--------------------------
+[ ] 1. Install in a test project: npm install @ask-io/chat-widget
+[ ] 2. Verify imports work: import { ChatWidget } from '@ask-io/chat-widget'
+[ ] 3. Verify styles import: import '@ask-io/chat-widget/styles'
+[ ] 4. Check TypeScript types are available
+[ ] 5. Test in a React application
+[ ] 6. Verify CDN deployment (if applicable)
+
+Troubleshooting:
+---------------
+- If publish fails with 403: Check npm authentication
+- If publish fails with 402: Package name may be taken
+- If types are missing: Ensure vite-plugin-dts is working
+- If files are missing: Check .npmignore and package.json "files" field
+- If bundle is too large: Review vite.config.ts optimization settings
+
+Version Bumping:
+---------------
+- Patch (1.0.x): Bug fixes, no breaking changes
+- Minor (1.x.0): New features, no breaking changes
+- Major (x.0.0): Breaking changes
+- Prerelease: Beta/alpha versions
+
+NPM Tags:
+---------
+- latest: Stable production release (default)
+- beta: Beta testing release
+- alpha: Alpha testing release
+- next: Development release

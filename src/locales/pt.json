@@ -1,0 +1,34 @@
+{
+  "chat": {
+    "title": "Assistente IA",
+    "placeholder": "Digite uma mensagem...",
+    "send": "Enviar",
+    "connecting": "Conectando...",
+    "connected": "Conectado",
+    "disconnected": "Desconectado",
+    "reconnect": "Reconectar",
+    "listening": "Ouvindo...",
+    "thinking": "Pensando...",
+    "welcome": "Bem-vindo! Como posso ajudá-lo hoje?",
+    "askMe": "Pergunte-me qualquer coisa!",
+    "tryQuestions": "Tente perguntar:",
+    "connectionLost": "Conexão perdida",
+    "closeChat": "Fechar chat",
+    "chatWithAI": "Conversar com IA",
+    "listeningSpeak": "Ouvindo... Fale agora",
+    "suggestions": {
+      "whatIsCreastat": "O que é Creastat?",
+      "howMuchCost": "Quanto custa?",
+      "whatFeatures": "Quais recursos vocês oferecem?",
+      "howGetStarted": "Como começar?"
+    },
+    "errors": {
+      "authFailed": "Falha na autenticação",
+      "connectionLost": "Conexão perdida",
+      "micPermission": "Permissão de microfone negada",
+      "audioFailed": "Entrada de voz indisponível",
+      "notConnected": "Não conectado ao serviço de chat",
+      "sendFailed": "Falha ao enviar mensagem"
+    }
+  }
+}

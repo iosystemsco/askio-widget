@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Widget Embed Test</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+    .test-section {
+      margin: 30px 0;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    .test-section h2 {
+      margin-top: 0;
+      color: #666;
+    }
+    code {
+      background: #e0e0e0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+    .status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    button {
+      background: #8b5cf6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #7c3aed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat Widget Embed Script Test</h1>
+  
+  <div class="test-section">
+    <h2>Test 1: Auto-initialization with data attributes</h2>
+    <p>The widget should automatically initialize when the page loads.</p>
+    <div id="test1-status" class="status">Checking...</div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 2: Manual initialization</h2>
+    <p>Click the button to manually initialize a widget instance.</p>
+    <button onclick="testManualInit()">Initialize Widget</button>
+    <button onclick="testDestroy()">Destroy Widget</button>
+    <div id="test2-status" class="status">Ready</div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 3: Configuration options</h2>
+    <p>Test different configuration options.</p>
+    <button onclick="testTheme('dark')">Dark Theme</button>
+    <button onclick="testTheme('light')">Light Theme</button>
+    <button onclick="testTheme('purple')">Purple Theme</button>
+    <button onclick="testPosition('bottom-left')">Bottom Left</button>
+    <button onclick="testPosition('bottom-right')">Bottom Right</button>
+    <div id="test3-status" class="status">Ready</div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 4: API availability</h2>
+    <p>Check if the global API is available.</p>
+    <div id="test4-status" class="status">Checking...</div>
+    <pre id="api-info" style="background: white; padding: 10px; border-radius: 4px;"></pre>
+  </div>
+
+  <!-- Load the embed script with auto-init -->
+  <link rel="stylesheet" href="../dist/embed.css">
+  <script src="../dist/embed.js"
+    data-askio-token="test-site-token-12345"
+    data-askio-theme="default"
+    data-askio-language="en"
+    data-askio-position="bottom-right">
+  </script>
+
+  <script>
+    let widgetInstance = null;
+
+    // Test 1: Check auto-initialization
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const status1 = document.getElementById('test1-status');
+        if (typeof window.AskIOChat !== 'undefined') {
+          status1.className = 'status success';
+          status1.textContent = '✓ Widget auto-initialized successfully';
+        } else {
+          status1.className = 'status error';
+          status1.textContent = '✗ Widget failed to auto-initialize';
+        }
+      }, 1000);
+    });
+
+    // Test 2: Manual initialization
+    function testManualInit() {
+      const status2 = document.getElementById('test2-status');
+      try {
+        if (widgetInstance) {
+          widgetInstance.destroy();
+        }
+        widgetInstance = window.AskIOChat.init({
+          siteToken: 'manual-test-token',
+          theme: 'ocean',
+          language: 'en',
+          position: 'bottom-right',
+          enableVoice: true,
+          enableTTS: true,
+        });
+        status2.className = 'status success';
+        status2.textContent = '✓ Widget initialized manually';
+      } catch (error) {
+        status2.className = 'status error';
+        status2.textContent = '✗ Error: ' + error.message;
+      }
+    }
+
+    function testDestroy() {
+      const status2 = document.getElementById('test2-status');
+      try {
+        if (widgetInstance) {
+          widgetInstance.destroy();
+          widgetInstance = null;
+          status2.className = 'status success';
+          status2.textContent = '✓ Widget destroyed';
+        } else {
+          status2.className = 'status error';
+          status2.textContent = '✗ No widget instance to destroy';
+        }
+      } catch (error) {
+        status2.className = 'status error';
+        status2.textContent = '✗ Error: ' + error.message;
+      }
+    }
+
+    // Test 3: Configuration options
+    function testTheme(theme) {
+      const status3 = document.getElementById('test3-status');
+      try {
+        if (widgetInstance) {
+          widgetInstance.destroy();
+        }
+        widgetInstance = window.AskIOChat.init({
+          siteToken: 'theme-test-token',
+          theme: theme,
+          language: 'en',
+          position: 'bottom-right',
+        });
+        status3.className = 'status success';
+        status3.textContent = '✓ Widget initialized with ' + theme + ' theme';
+      } catch (error) {
+        status3.className = 'status error';
+        status3.textContent = '✗ Error: ' + error.message;
+      }
+    }
+
+    function testPosition(position) {
+      const status3 = document.getElementById('test3-status');
+      try {
+        if (widgetInstance) {
+          widgetInstance.destroy();
+        }
+        widgetInstance = window.AskIOChat.init({
+          siteToken: 'position-test-token',
+          theme: 'default',
+          language: 'en',
+          position: position,
+        });
+        status3.className = 'status success';
+        status3.textContent = '✓ Widget initialized at ' + position;
+      } catch (error) {
+        status3.className = 'status error';
+        status3.textContent = '✗ Error: ' + error.message;
+      }
+    }
+
+    // Test 4: API availability
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const status4 = document.getElementById('test4-status');
+        const apiInfo = document.getElementById('api-info');
+        
+        if (typeof window.AskIOChat !== 'undefined') {
+          status4.className = 'status success';
+          status4.textContent = '✓ Global API is available';
+          
+          const api = window.AskIOChat;
+          apiInfo.textContent = 'Available API:\n' +
+            '- version: ' + (api.version || 'N/A') + '\n' +
+            '- init: ' + (typeof api.init === 'function' ? 'function' : 'N/A') + '\n' +
+            '- Methods: ' + Object.keys(api).join(', ');
+        } else {
+          status4.className = 'status error';
+          status4.textContent = '✗ Global API is not available';
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

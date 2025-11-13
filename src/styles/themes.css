@@ -1,0 +1,111 @@
+@theme {
+  /* Default Theme - Purple gradient */
+  --chat-primary: #8b5cf6;
+  --chat-secondary: #a78bfa;
+  --chat-background: #2c2d2d;
+  --chat-surface: #3a3b3b;
+  --chat-text: #ffffff;
+  --chat-text-secondary: rgba(255, 255, 255, 0.7);
+  --chat-border: rgba(255, 255, 255, 0.1);
+  --chat-user-message: rgba(34, 197, 94, 0.1);
+  --chat-bot-message: rgba(168, 85, 247, 0.1);
+  --chat-error: #ef4444;
+  --chat-success: #22c55e;
+  --chat-radius: 1rem;
+}
+
+/* Dark Theme */
+[data-chat-theme='dark'] {
+  --chat-primary: #6366f1;
+  --chat-secondary: #818cf8;
+  --chat-background: #1a1a1a;
+  --chat-surface: #262626;
+  --chat-text: #ffffff;
+  --chat-text-secondary: rgba(255, 255, 255, 0.6);
+  --chat-border: rgba(255, 255, 255, 0.1);
+  --chat-user-message: rgba(99, 102, 241, 0.15);
+  --chat-bot-message: rgba(129, 140, 248, 0.15);
+  --chat-error: #ef4444;
+  --chat-success: #10b981;
+  --chat-radius: 0.75rem;
+}
+
+/* Light Theme */
+[data-chat-theme='light'] {
+  --chat-primary: #7c3aed;
+  --chat-secondary: #a78bfa;
+  --chat-background: #ffffff;
+  --chat-surface: #f9fafb;
+  --chat-text: #111827;
+  --chat-text-secondary: rgba(17, 24, 39, 0.7);
+  --chat-border: rgba(0, 0, 0, 0.1);
+  --chat-user-message: rgba(124, 58, 237, 0.1);
+  --chat-bot-message: rgba(167, 139, 250, 0.1);
+  --chat-error: #dc2626;
+  --chat-success: #059669;
+  --chat-radius: 0.75rem;
+}
+
+/* Purple Theme */
+[data-chat-theme='purple'] {
+  --chat-primary: #9333ea;
+  --chat-secondary: #c084fc;
+  --chat-background: #1e1b2e;
+  --chat-surface: #2d2640;
+  --chat-text: #ffffff;
+  --chat-text-secondary: rgba(255, 255, 255, 0.7);
+  --chat-border: rgba(147, 51, 234, 0.2);
+  --chat-user-message: rgba(147, 51, 234, 0.15);
+  --chat-bot-message: rgba(192, 132, 252, 0.15);
+  --chat-error: #f43f5e;
+  --chat-success: #22c55e;
+  --chat-radius: 1rem;
+}
+
+/* Green Theme */
+[data-chat-theme='green'] {
+  --chat-primary: #10b981;
+  --chat-secondary: #34d399;
+  --chat-background: #1a2e1a;
+  --chat-surface: #243b24;
+  --chat-text: #ffffff;
+  --chat-text-secondary: rgba(255, 255, 255, 0.7);
+  --chat-border: rgba(16, 185, 129, 0.2);
+  --chat-user-message: rgba(16, 185, 129, 0.15);
+  --chat-bot-message: rgba(52, 211, 153, 0.15);
+  --chat-error: #ef4444;
+  --chat-success: #22c55e;
+  --chat-radius: 0.75rem;
+}
+
+/* Ocean Theme */
+[data-chat-theme='ocean'] {
+  --chat-primary: #0ea5e9;
+  --chat-secondary: #38bdf8;
+  --chat-background: #1a2a3a;
+  --chat-surface: #243b4a;
+  --chat-text: #ffffff;
+  --chat-text-secondary: rgba(255, 255, 255, 0.7);
+  --chat-border: rgba(14, 165, 233, 0.2);
+  --chat-user-message: rgba(14, 165, 233, 0.15);
+  --chat-bot-message: rgba(56, 189, 248, 0.15);
+  --chat-error: #f43f5e;
+  --chat-success: #14b8a6;
+  --chat-radius: 0.75rem;
+}
+
+/* Sunset Theme */
+[data-chat-theme='sunset'] {
+  --chat-primary: #f97316;
+  --chat-secondary: #fb923c;
+  --chat-background: #2a1a1a;
+  --chat-surface: #3a2424;
+  --chat-text: #ffffff;
+  --chat-text-secondary: rgba(255, 255, 255, 0.7);
+  --chat-border: rgba(249, 115, 22, 0.2);
+  --chat-user-message: rgba(249, 115, 22, 0.15);
+  --chat-bot-message: rgba(251, 146, 60, 0.15);
+  --chat-error: #ef4444;
+  --chat-success: #22c55e;
+  --chat-radius: 1rem;
+}

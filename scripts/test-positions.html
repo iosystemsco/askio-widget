@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Widget - Position & Width Options Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      color: #444;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #667eea;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .demo-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .demo-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+    }
+
+    .demo-card h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .demo-card p {
+      margin: 0 0 15px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .demo-card button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+      width: 100%;
+    }
+
+    .demo-card button:hover {
+      background: #5568d3;
+    }
+
+    .inline-demo {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .inline-demo h3 {
+      margin: 0 0 15px 0;
+      color: #333;
+    }
+
+    .inline-container {
+      width: 100%;
+      height: 600px;
+      border: 2px dashed #667eea;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    code {
+      background: #f1f3f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+      color: #e83e8c;
+    }
+
+    .code-block {
+      background: #2d3748;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 15px 0;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .note strong {
+      color: #856404;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Chat Widget Position & Width Options</h1>
+    <p class="subtitle">Test all available positioning options and custom dimensions</p>
+
+    <!-- Floating Positions Section -->
+    <div class="section">
+      <h2>📍 Floating Positions</h2>
+      <p>Click any button to launch the widget in different positions:</p>
+      
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Bottom Right</h3>
+          <p>Classic position (default)</p>
+          <button onclick="launchWidget('bottom-right')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Bottom Left</h3>
+          <p>Left-aligned at bottom</p>
+          <button onclick="launchWidget('bottom-left')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Bottom Center</h3>
+          <p>Centered at bottom</p>
+          <button onclick="launchWidget('bottom-center')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Top Right</h3>
+          <p>Right-aligned at top</p>
+          <button onclick="launchWidget('top-right')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Top Left</h3>
+          <p>Left-aligned at top</p>
+          <button onclick="launchWidget('top-left')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Top Center</h3>
+          <p>Centered at top</p>
+          <button onclick="launchWidget('top-center')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Left Center</h3>
+          <p>Vertically centered on left</p>
+          <button onclick="launchWidget('left-center')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Right Center</h3>
+          <p>Vertically centered on right</p>
+          <button onclick="launchWidget('right-center')">Launch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Width Section -->
+    <div class="section">
+      <h2>📏 Custom Dimensions</h2>
+      <p>Test widgets with different sizes:</p>
+      
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Compact (300px)</h3>
+          <p>Narrow widget for mobile-like experience</p>
+          <button onclick="launchWidgetWithSize('bottom-right', '300px', '500px')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Standard (384px)</h3>
+          <p>Default size</p>
+          <button onclick="launchWidgetWithSize('bottom-right', '384px', '600px')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Wide (500px)</h3>
+          <p>Larger widget for more content</p>
+          <button onclick="launchWidgetWithSize('bottom-right', '500px', '700px')">Launch</button>
+        </div>
+
+        <div class="demo-card">
+          <h3>Extra Wide (600px)</h3>
+          <p>Maximum width for desktop</p>
+          <button onclick="launchWidgetWithSize('bottom-right', '600px', '800px')">Launch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline Mode Section -->
+    <div class="section">
+      <h2>📦 Inline Mode</h2>
+      <p>Embed the widget directly in your page layout (no floating button):</p>
+      
+      <div class="inline-demo">
+        <h3>Inline Widget Example</h3>
+        <div class="inline-container" id="inline-widget-container"></div>
+      </div>
+
+      <div class="code-block">
+&lt;!-- Inline Widget Example --&gt;
+&lt;div id="chat-container" style="width: 100%; height: 600px;"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  AskIOChat.init({
+    siteToken: 'your-site-token',
+    position: { placement: 'inline' },
+    dimensions: {
+      width: '100%',
+      height: '100%'
+    }
+  });
+&lt;/script&gt;
+      </div>
+    </div>
+
+    <!-- Data Attributes Section -->
+    <div class="section">
+      <h2>🏷️ Using Data Attributes</h2>
+      <p>You can configure position and dimensions using HTML data attributes:</p>
+
+      <div class="code-block">
+&lt;!-- Bottom Right with Custom Width --&gt;
+&lt;script 
+  src="https://cdn.askio.ai/chat-widget.js"
+  data-askio-token="your-site-token"
+  data-askio-position="bottom-right"
+  data-askio-width="500px"
+  data-askio-height="700px"
+&gt;&lt;/script&gt;
+
+&lt;!-- Top Center Position --&gt;
+&lt;script 
+  src="https://cdn.askio.ai/chat-widget.js"
+  data-askio-token="your-site-token"
+  data-askio-position="top-center"
+&gt;&lt;/script&gt;
+
+&lt;!-- Inline Mode --&gt;
+&lt;script 
+  src="https://cdn.askio.ai/chat-widget.js"
+  data-askio-token="your-site-token"
+  data-askio-position="inline"
+  data-askio-width="100%"
+  data-askio-height="600px"
+  data-askio-hide-button="true"
+&gt;&lt;/script&gt;
+      </div>
+    </div>
+
+    <!-- Available Options -->
+    <div class="section">
+      <h2>⚙️ Available Options</h2>
+      
+      <h3>Position Options:</h3>
+      <ul>
+        <li><code>bottom-right</code> - Bottom right corner (default)</li>
+        <li><code>bottom-left</code> - Bottom left corner</li>
+        <li><code>bottom-center</code> - Bottom center</li>
+        <li><code>top-right</code> - Top right corner</li>
+        <li><code>top-left</code> - Top left corner</li>
+        <li><code>top-center</code> - Top center</li>
+        <li><code>left-center</code> - Left side, vertically centered</li>
+        <li><code>right-center</code> - Right side, vertically centered</li>
+        <li><code>inline</code> - Embedded inline (no floating button)</li>
+      </ul>
+
+      <h3>Dimension Options:</h3>
+      <ul>
+        <li><code>width</code> - Widget width (e.g., "384px", "50%", "20rem")</li>
+        <li><code>height</code> - Widget height (e.g., "600px", "80vh")</li>
+        <li><code>maxWidth</code> - Maximum width</li>
+        <li><code>maxHeight</code> - Maximum height</li>
+        <li><code>minWidth</code> - Minimum width</li>
+        <li><code>minHeight</code> - Minimum height</li>
+      </ul>
+
+      <h3>Other Options:</h3>
+      <ul>
+        <li><code>hideButton</code> - Hide the floating action button (useful for custom triggers)</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> This is a demo page. Replace <code>your-site-token</code> with your actual site token to test with real data.
+    </div>
+  </div>
+
+  <!-- Load the chat widget library -->
+  <script src="../dist/embed.js"></script>
+
+  <script>
+    // Store active widget instance
+    let activeWidget = null;
+
+    // Launch widget with specific position
+    function launchWidget(position) {
+      // Destroy previous widget if exists
+      if (activeWidget) {
+        activeWidget.destroy();
+      }
+
+      // Create new widget
+      activeWidget = AskIOChat.init({
+        siteToken: 'demo-token-12345',
+        position: { placement: position },
+        theme: { preset: 'default' },
+        welcomeMessage: `Widget positioned at: ${position}`,
+        suggestions: [
+          'Tell me about your services',
+          'What are your hours?',
+          'How can I contact you?'
+        ],
+        autoOpen: true
+      });
+    }
+
+    // Launch widget with custom size
+    function launchWidgetWithSize(position, width, height) {
+      // Destroy previous widget if exists
+      if (activeWidget) {
+        activeWidget.destroy();
+      }
+
+      // Create new widget
+      activeWidget = AskIOChat.init({
+        siteToken: 'demo-token-12345',
+        position: { placement: position },
+        dimensions: {
+          width: width,
+          height: height
+        },
+        theme: { preset: 'default' },
+        welcomeMessage: `Widget size: ${width} × ${height}`,
+        suggestions: [
+          'Tell me about your services',
+          'What are your hours?',
+          'How can I contact you?'
+        ],
+        autoOpen: true
+      });
+    }
+
+    // Initialize inline widget on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      // Note: For inline mode, you'd typically target a specific container
+      // This is just a demonstration
+      console.log('Page loaded. Inline widget would be initialized here.');
+      
+      // Example of inline initialization (commented out to avoid conflicts):
+      /*
+      const inlineWidget = AskIOChat.init({
+        siteToken: 'demo-token-12345',
+        position: { placement: 'inline' },
+        dimensions: {
+          width: '100%',
+          height: '100%'
+        },
+        theme: { preset: 'default' },
+        welcomeMessage: 'This is an inline widget!',
+        hideButton: true
+      });
+      */
+    });
+  </script>
+</body>
+</html>

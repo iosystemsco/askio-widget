@@ -1,0 +1,34 @@
+{
+  "chat": {
+    "title": "KI-Assistent",
+    "placeholder": "Nachricht eingeben...",
+    "send": "Senden",
+    "connecting": "Verbinden...",
+    "connected": "Verbunden",
+    "disconnected": "Getrennt",
+    "reconnect": "Neu verbinden",
+    "listening": "Zuhören...",
+    "thinking": "Denken...",
+    "welcome": "Willkommen! Wie kann ich Ihnen heute helfen?",
+    "askMe": "Fragen Sie mich alles!",
+    "tryQuestions": "Versuchen Sie zu fragen:",
+    "connectionLost": "Verbindung verloren",
+    "closeChat": "Chat schließen",
+    "chatWithAI": "Mit KI chatten",
+    "listeningSpeak": "Zuhören... Sprechen Sie jetzt",
+    "suggestions": {
+      "whatIsCreastat": "Was ist Creastat?",
+      "howMuchCost": "Wie viel kostet es?",
+      "whatFeatures": "Welche Funktionen bieten Sie?",
+      "howGetStarted": "Wie fange ich an?"
+    },
+    "errors": {
+      "authFailed": "Authentifizierung fehlgeschlagen",
+      "connectionLost": "Verbindung verloren",
+      "micPermission": "Mikrofonberechtigung verweigert",
+      "audioFailed": "Spracheingabe nicht verfügbar",
+      "notConnected": "Nicht mit Chat-Service verbunden",
+      "sendFailed": "Nachricht konnte nicht gesendet werden"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Widget Embed Test</title>
+</head>
+<body>
+    <h1>Chat Widget Embed Test</h1>
+    <p>This page tests the embed script functionality.</p>
+
+    <!-- Test 1: Auto-init with data attributes -->
+    <h2>Test 1: Auto-initialization</h2>
+    <p>Widget should auto-initialize from data attributes below:</p>
+    <link rel="stylesheet" href="./dist/embed.css">
+    <script 
+        src="./dist/embed.js"
+        data-askio-token="test-site-token-123"
+        data-askio-theme="purple"
+        data-askio-language="en"
+        data-askio-position="bottom-right"
+        data-askio-welcome="Welcome to our chat! How can we help you today?"
+        data-askio-placeholder="Ask us anything..."
+        data-askio-suggestions="What are your hours?,How can I contact support?,Tell me about your services"
+    ></script>
+
+    <!-- Test 2: Manual initialization -->
+    <h2>Test 2: Manual Initialization</h2>
+    <button onclick="testManualInit()">Initialize Widget Manually</button>
+    <button onclick="testDestroy()">Destroy Widget</button>
+    <button onclick="testUpdateConfig()">Update Config</button>
+
+    <script>
+        let manualInstance = null;
+
+        function testManualInit() {
+            if (manualInstance) {
+                alert('Widget already initialized. Destroy it first.');
+                return;
+            }
+
+            manualInstance = AskIOChat.init({
+                siteToken: 'manual-test-token-456',
+                theme: {
+                    preset: 'ocean'
+                },
+                language: 'en',
+                position: {
+                    placement: 'bottom-left'
+                },
+                enableVoice: false,
+                enableTTS: true,
+                welcomeMessage: 'Hello! This is a manually initialized widget.',
+                placeholder: 'Type your message here...',
+                suggestions: [
+                    'What is your pricing?',
+                    'How do I get started?',
+                    'Contact sales'
+                ]
+            });
+
+            console.log('Manual widget initialized:', manualInstance);
+            alert('Widget initialized manually!');
+        }
+
+        function testDestroy() {
+            if (!manualInstance) {
+                alert('No manual widget to destroy.');
+                return;
+            }
+
+            manualInstance.destroy();
+            manualInstance = null;
+            console.log('Manual widget destroyed');
+            alert('Widget destroyed!');
+        }
+
+        function testUpdateConfig() {
+            if (!manualInstance) {
+                alert('No manual widget to update. Initialize it first.');
+                return;
+            }
+
+            manualInstance.updateConfig({
+                theme: {
+                    preset: 'dark'
+                },
+                welcomeMessage: 'Configuration updated! Theme changed to dark.'
+            });
+
+            console.log('Widget config updated');
+            alert('Widget configuration updated!');
+        }
+
+        // Log API availability
+        console.log('AskIOChat API:', window.AskIOChat);
+        console.log('Version:', window.AskIOChat.version);
+    </script>
+</body>
+</html>

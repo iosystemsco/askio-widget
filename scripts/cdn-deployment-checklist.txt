@@ -1,0 +1,174 @@
+CDN Deployment Checklist for @ask-io/chat-widget
+=================================================
+
+Pre-Deployment Verification:
+----------------------------
+[ ] 1. Build embed script: bun run build:embed
+[ ] 2. Verify embed.js exists in dist/ folder
+[ ] 3. Verify embed.css exists in dist/ folder
+[ ] 4. Check bundle size: ls -lh dist/embed.*
+[ ] 5. Test embed script locally: bun run test:embed
+[ ] 6. Verify auto-initialization works
+[ ] 7. Verify manual initialization works
+[ ] 8. Test different themes and configurations
+[ ] 9. Test on different browsers (Chrome, Firefox, Safari)
+[ ] 10. Test on mobile devices
+
+CDN Provider Setup:
+------------------
+
+Cloudflare R2:
+[ ] 1. Create R2 bucket (if not exists)
+[ ] 2. Set CLOUDFLARE_ACCOUNT_ID environment variable
+[ ] 3. Set CLOUDFLARE_API_TOKEN environment variable
+[ ] 4. Set R2_BUCKET_NAME environment variable (optional, defaults to 'chat-widget')
+[ ] 5. Configure public access for the bucket
+[ ] 6. Set up custom domain (optional)
+
+AWS S3/CloudFront:
+[ ] 1. Create S3 bucket (if not exists)
+[ ] 2. Configure AWS credentials (aws configure)
+[ ] 3. Set AWS_S3_BUCKET environment variable
+[ ] 4. Set S3_PATH_PREFIX environment variable (optional, defaults to 'chat-widget')
+[ ] 5. Set AWS_CLOUDFRONT_DISTRIBUTION_ID (optional, for cache invalidation)
+[ ] 6. Set CDN_DOMAIN environment variable (optional, for URL display)
+[ ] 7. Configure bucket policy for public read access
+[ ] 8. Set up CloudFront distribution (optional)
+
+Deployment Steps:
+----------------
+
+Option A: Manual Deployment to Cloudflare
+[ ] 1. Build embed script: bun run build:embed
+[ ] 2. Deploy: bun run deploy:cloudflare
+[ ] 3. Verify deployment success message
+[ ] 4. Note the CDN URLs provided
+[ ] 5. Test versioned URL in browser
+[ ] 6. Test latest URL in browser
+
+Option B: Manual Deployment to AWS
+[ ] 1. Build embed script: bun run build:embed
+[ ] 2. Deploy: bun run deploy:aws
+[ ] 3. Verify deployment success message
+[ ] 4. Note the CDN URLs provided
+[ ] 5. Test versioned URL in browser
+[ ] 6. Test latest URL in browser
+[ ] 7. Wait for CloudFront propagation (if using CloudFront)
+
+Option C: GitHub Actions (Recommended)
+[ ] 1. Ensure CDN credentials are set in GitHub Secrets:
+       - CLOUDFLARE_ACCOUNT_ID
+       - CLOUDFLARE_API_TOKEN
+       OR
+       - AWS_ACCESS_KEY_ID
+       - AWS_SECRET_ACCESS_KEY
+       - AWS_S3_BUCKET
+       - AWS_CLOUDFRONT_DISTRIBUTION_ID (optional)
+[ ] 2. Go to Actions tab in GitHub
+[ ] 3. Select "Chat Widget - Deploy to CDN" workflow
+[ ] 4. Click "Run workflow"
+[ ] 5. Select environment (production/staging)
+[ ] 6. Click "Run workflow"
+[ ] 7. Monitor workflow execution
+[ ] 8. Check deployment summary in workflow output
+
+Post-Deployment Verification:
+-----------------------------
+[ ] 1. Test versioned URL loads correctly
+[ ] 2. Test latest URL loads correctly
+[ ] 3. Verify CORS headers are set correctly
+[ ] 4. Verify cache headers are set correctly:
+       - Versioned: max-age=31536000, immutable
+       - Latest: max-age=3600
+[ ] 5. Test embed script in a test HTML page
+[ ] 6. Verify auto-initialization works from CDN
+[ ] 7. Verify manual initialization works from CDN
+[ ] 8. Test on different browsers
+[ ] 9. Test on mobile devices
+[ ] 10. Check browser console for errors
+[ ] 11. Verify CSS loads correctly
+[ ] 12. Test widget functionality (send messages, etc.)
+
+CDN URLs Format:
+---------------
+
+Cloudflare R2:
+- Versioned: https://cdn.askio.com/chat-widget/v{VERSION}/embed.js
+- Latest:    https://cdn.askio.com/chat-widget/latest/embed.js
+
+AWS CloudFront:
+- Versioned: https://{CDN_DOMAIN}/chat-widget/v{VERSION}/embed.js
+- Latest:    https://{CDN_DOMAIN}/chat-widget/latest/embed.js
+
+Usage Example:
+-------------
+```html
+<!-- Include CSS -->
+<link rel="stylesheet" href="https://cdn.askio.com/chat-widget/latest/embed.css">
+
+<!-- Include JS with auto-init -->
+<script 
+  src="https://cdn.askio.com/chat-widget/latest/embed.js"
+  data-askio-token="your-site-token"
+  data-askio-theme="default"
+  data-askio-language="en"
+  data-askio-position="bottom-right">
+</script>
+```
+
+Or manual initialization:
+```html
+<link rel="stylesheet" href="https://cdn.askio.com/chat-widget/latest/embed.css">
+<script src="https://cdn.askio.com/chat-widget/latest/embed.js"></script>
+<script>
+  AskIOChat.init({
+    siteToken: 'your-site-token',
+    theme: 'purple',
+    language: 'en',
+    position: 'bottom-right',
+    enableVoice: true,
+    enableTTS: true,
+  });
+</script>
+```
+
+Cache Strategy:
+--------------
+- Versioned files: Immutable, 1 year cache (31536000 seconds)
+  - Safe to cache forever since version never changes
+  - Users can pin to specific version for stability
+  
+- Latest files: Short cache, 1 hour (3600 seconds)
+  - Allows updates to propagate quickly
+  - Users get latest features automatically
+  - Recommended for most use cases
+
+Troubleshooting:
+---------------
+- If deployment fails: Check credentials and permissions
+- If files don't load: Check CORS configuration
+- If cache not working: Verify cache-control headers
+- If CloudFront not updating: Invalidate cache manually
+- If 403 errors: Check bucket/object permissions
+- If 404 errors: Verify file paths and bucket name
+
+Rollback Procedure:
+------------------
+If issues are found after deployment:
+[ ] 1. Identify the last working version
+[ ] 2. Update latest/ to point to that version
+[ ] 3. For Cloudflare: Re-run deploy script with old version
+[ ] 4. For AWS: Copy old version to latest/ path
+[ ] 5. Invalidate CDN cache
+[ ] 6. Verify rollback successful
+[ ] 7. Investigate and fix issues
+[ ] 8. Re-deploy when ready
+
+Monitoring:
+----------
+After deployment, monitor:
+- CDN bandwidth usage
+- Error rates in browser console
+- User reports of issues
+- Widget initialization success rate
+- WebSocket connection success rate
